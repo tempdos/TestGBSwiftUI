@@ -8,10 +8,12 @@
 import SwiftUI
 import Combine
 
-struct ContentView: View {
+struct LoginView: View {
     @State private var login = ""
     @State private var password = ""
     @State private var shouldShowLogo: Bool = true
+    @State private var showIncorrentCredentialsWarning = false
+    @Binding var isUserLoggedIn: Bool
     
     private let keyboardIsOnPublisher = Publishers.Merge(NotificationCenter.default.publisher(for: UIResponder.keyboardDidChangeFrameNotification).map { _ in true }, NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification).map { _ in false }).removeDuplicates()
     
@@ -45,7 +47,7 @@ struct ContentView: View {
                     
                 }.padding(.top, 200)
                 HStack {
-                    Button(action: { print("Hello") }) {
+                    Button(action: verifyLoginData) {
                         Text("Войти")
                     }
                     .foregroundColor(.white)
@@ -61,18 +63,25 @@ struct ContentView: View {
             }
         }.onTapGesture {
             UIApplication.shared.endEditing()
+        }.alert(isPresented: $showIncorrentCredentialsWarning, content: {
+            Alert(title: Text("Error"), message: Text("Incorrect login/password"))
+        })
+        
+    }
+    private func verifyLoginData() {
+        if login == "Test" && password == "Test" {
+            isUserLoggedIn = true
+        } else {
+            showIncorrentCredentialsWarning = true
         }
+        // сбрасываем пароль, после проверки для лучшего UX
+        password = ""
     }
 }
-
 extension UIApplication {
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+

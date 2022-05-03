@@ -1,0 +1,47 @@
+[
+    {
+        "id": 0,
+        "name": "Павел Дуров",
+        "image": "user0",
+        "photos": [
+            { "id": 1, "filename": "user0_photo1" },
+            { "id": 2, "filename": "user0_photo2" },
+            { "id": 3, "filename": "user0_photo3" },
+            { "id": 4, "filename": "user0_photo4" }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Том Круз",
+        "image": "user1",
+        "photos": [
+            { "id": 1, "filename": "user1_photo1" },
+            { "id": 2, "filename": "user1_photo2" },
+            { "id": 3, "filename": "user1_photo3" },
+            { "id": 4, "filename": "user1_photo4" }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Данила Козловский",
+        "image": "user2",
+        "photos": [
+            { "id": 1, "filename": "user2_photo1" },
+            { "id": 2, "filename": "user2_photo2" },
+            { "id": 3, "filename": "user2_photo3" },
+            { "id": 4, "filename": "user2_photo4" }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Александр Петров",
+        "image": "user3",
+        "photos": [
+            { "id": 1, "filename": "user3_photo1" },
+            { "id": 2, "filename": "user3_photo2" },
+            { "id": 3, "filename": "user3_photo3" },
+            { "id": 4, "filename": "user3_photo4" }
+        ]
+    },
+    
+]
