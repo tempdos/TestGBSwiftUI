@@ -9,20 +9,16 @@ import SwiftUI
 
 struct User: View {
     
+    var user: UserResponse
+    
     var body: some View {
-        VStack {
-            HStack {
-                VStack {
-                    HStack {
-                        UserImage {
-                            Image("user")
-                        }
-                    }
-                    Text("Дуров")
-                        .frame(width: 90, height: 30)
-                }.padding(5)
-                Spacer()
+        HStack {
+            UserImage {
+                Image(user.image)
             }
+            Text(user.name)
+                .font(.title)
+                .padding(.leading)
             Spacer()
         }
     }
@@ -30,7 +26,7 @@ struct User: View {
 
 struct User_Previews: PreviewProvider {
     static var previews: some View {
-        User()
+        User(user: userResponse[0])
     }
 }
 
